@@ -1,15 +1,9 @@
-# Contributed by: 
-Name: Abhijai Rajawat
-University: VIT, Vellore
+# Program to convert Celsius to Fahrenheit
 
-# Problem Statement:
-Write a python program to convert celsius To Fahrenheit by taking input from user
-
-# Problem Solution:
 # Get the temperature in Celsius from the user
 celsius = float(input("Enter the temperature in Celsius: "))
 
-# Convert Celsius to Fahrenheit
+# Convert Celsius to Fahrenheit using the formula
 fahrenheit = (celsius * 9/5) + 32
 
 # Display the result
