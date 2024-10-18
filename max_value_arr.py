@@ -1,23 +1,13 @@
-#APPROACH -1
-#SORTING THE INITIAL LIST AND RETURNING THE LAST ELEMENT OF LIST
-def max(arr):
+# Example array
+arr = [3, 5, 1, 9, 2]
 
-    arr.sort()
-    return arr[-1]
-#APPROACH -2
-#ITERATING THROUGH ALL THE ELEMENTS IN LIST AND COMPARING EACH ELEMENT
+# Initialize max_value to the first element of the array
+max_value = arr[0]
 
-def max(arr):
-    
-    max_element = arr[0]
+# Loop through the array to find the maximum value
+for num in arr:
+    if num > max_value:
+        max_value = num
 
-    for i in range(len(arr)):
-        if arr[i] > max_element:
-            max_element = arr[i]
-
-    return (max_element)
-
-#APPROACH-3
-#USING INBUILT FUNCTION
-def max(arr):
-    return (max(arr))
+# Display the result
+print("The maximum value in the array is:", max_value)
