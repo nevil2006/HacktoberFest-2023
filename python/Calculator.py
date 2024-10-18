@@ -1,3 +1,4 @@
+// changed from python to c
 #include <stdio.h>
 
 float add(float a, float b) {
