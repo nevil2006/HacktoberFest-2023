@@ -1,64 +1,76 @@
-def add(a, b):
-    return int(a + b)
+#include <stdio.h>
 
-def sub(a, b):
-    return int(a - b)
+float add(float a, float b) {
+    return a + b;
+}
 
-def mul(a, b):
-    return int(a * b)
+float sub(float a, float b) {
+    return a - b;
+}
 
-def div(a, b):
-    try:
-        if b != 0:
-            return int(a / b)
-        else:
-            return "Division by zero is not allowed"
-    except ZeroDivisionError:
-        return "Division by zero is not allowed"
+float mul(float a, float b) {
+    return a * b;
+}
 
-def user_choice():
-    while True:
-        print("Calculator Menu:")
-        print("1. Addition")
-        print("2. Multiplication")
-        print("3. Subtraction")
-        print("4. Division")
-        print("5. Quit")
+float div(float a, float b) {
+    if (b != 0) {
+        return a / b;
+    } else {
+        printf("Division by zero is not allowed.\n");
+        return 0; // Return 0 or handle error appropriately
+    }
+}
+int main() {
+    int choice;
+    float num1, num2, result;
 
-        user_input = input("Enter your choice (1-5): ")
-        
-        if user_input.isdigit():
-            user_input = int(user_input)
-            
-            if 1 <= user_input <= 5:
-                if user_input == 5:
-                    print("Exiting the calculator. Goodbye!")
-                    break
+    while (1) {
+        printf("Calculator Menu:\n");
+        printf("1. Addition\n");
+        printf("2. Multiplication\n");
+        printf("3. Subtraction\n");
+        printf("4. Division\n");
+        printf("5. Quit\n");
 
-                a = int(input("Enter the first number: "))
-                b = int(input("Enter the second number: "))
+        printf("Enter your choice (1-5): ");
+        scanf("%d", &choice);
 
-                try:
-                    if user_input == 1:
-                        result = add(a, b)
-                        print("Result:", result)
-                    elif user_input == 2:
-                        result = mul(a, b)
-                        print("Result:", result)
-                    elif user_input == 3:
-                        result = sub(a, b)
-                        print("Result:", result)
-                    elif user_input == 4:
-                        result = div(a, b)
-                        print("Result:", result)
-                        if result == "Division by zero is not allowed":
-                            print("Note: Division by zero is not allowed.")
-                except Exception as e:
-                    print(f"An error occurred: {e}")
-                    
-            else:
-                print("Please enter a number between 1 and 5.")
-        else:
-            print("Please enter a valid number.")
+        if (choice == 5) {
+            printf("Exiting the calculator. Goodbye!\n");
+            break;
+        }
 
-user_choice()
+        printf("Enter the first number: ");
+        scanf("%f", &num1);
+        printf("Enter the second number: ");
+        scanf("%f", &num2);
+        printf(".");
+
+        switch (choice) {
+            case 1:
+                result = add(num1, num2);
+                printf("Result: %.2f\n", result);
+                break;
+            case 2:
+                result = mul(num1, num2);
+                printf("Result: %.2f\n", result);
+                break;
+            case 3:
+                result = sub(num1, num2);
+                printf("Result: %.2f\n", result);
+                break;
+            case 4:
+                result = div(num1, num2);
+                // Note: Division by zero message is already printed in div function.
+                break;
+            default:
+                printf("Please enter a valid number (1-5).\n");
+                break;
+        }
+    }
+
+    return 0;
+}
+
+
+
